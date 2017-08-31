@@ -26,6 +26,8 @@
   },
   "devDependencies": {
     "eslint-plugin-protractor": "^1.40.0",
-    "jasmine-co": "1.2.2"
+    "jasmine-co": "1.2.2",
+    "protractor": "^5.1.2",
+    "superagent": "^3.6.0"
   }
 }

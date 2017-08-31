@@ -1,16 +1,16 @@
 exports.config = {
-	seleniumAddress: "http://localhost:4444/wd/hub",
+	seleniumAddress: 'http://localhost:4444/wd/hub',
 
 	capabilities: {
-		"browserName": "chrome",
-		"chromeOptions": {
-			"args": ["--disable-extensions", "--start-maximized"]
+		'browserName': 'chrome',
+		'chromeOptions': {
+			'args': ['--disable-extensions', '--start-maximized']
 		}
 	},
 
-	specs: ["./test/e2e/specs/login.spec.js"],
+	specs: ['./test/e2e/specs/login.spec.js'],
 
-	framework: "jasmine",
+	framework: 'jasmine',
 
 	jasmineNodeOpts: {
 		showColors: true,
@@ -18,14 +18,14 @@ exports.config = {
 	},
 
 	onPrepare: function() {
-		require("jasmine-co").install();
+		require('jasmine-co').install();
 		global.EC = protractor.ExpectedConditions;
 	},
 
 	params : {
-	    username: "",
-		password: "",
-		token: "",
-		baseUrl: "https://www.pivotaltracker.com/"
+	    username: '',
+		password: '',
+		token: '',
+		baseUrl: 'https://www.pivotaltracker.com'
 	}
 };
