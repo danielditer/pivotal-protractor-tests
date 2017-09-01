@@ -1,19 +1,21 @@
 'use strict';
 
+const Common = require('../common.js');
+
 class ProjectForm {
+
 	constructor() {
 		this.projectNameInputField = element(by.className('tc-form__input'));
 		this.accountSelect = element(by.className('tc-account-selector__header'));
 		this.createNewAccountSelectOption = element(by.className('tc-account-selector__create-account-text'));
 		this.newAccountNameInputField = element(by.className('tc-account-creator__name'));
-		this.publicRadioButton = element(by.css('input[data-aid="public"]'));
-		this.privateRadioButton = element(by.css('input[data-aid="private"]'));
-		this.createProjectButton = element(by.css('button[data-aid="FormModal__submit"]'));
+		this.publicRadioButton = $('input[data-aid="public"]');
+		this.privateRadioButton = $('input[data-aid="private"]');
+		this.createProjectButton = $('button[data-aid="FormModal__submit"]');
 	}
 
 	setNameInputField(projectName) {
-		return this.projectNameInputField.clear()
-			.then(() => this.projectNameInputField.sendKeys(projectName));
+		return Common.setInputField(this.projectNameInputField, projectName);
 	}
 
 	clickAccountSelector() {
@@ -21,12 +23,11 @@ class ProjectForm {
 	}
 
 	setNewAccountNameInputField(accountName) {
-		return this.newAccountNameInputField.clear()
-			.then(() => this.newAccountNameInputField.sendKeys(accountName));
+		return Common.setInputField(this.newAccountNameInputField, accountName);
 	}
 
 	clickCreateProjectButton() {
-		return this.publicRadioButton.click();
+		return this.createProjectButton.click();
 	}
 
 	clickPrivateRadioButton() {

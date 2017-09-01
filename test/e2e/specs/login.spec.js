@@ -4,6 +4,7 @@ describe('Login', function () {
 	const loginPage = require('../pages/login.page');
 	const dashboardPage = require('../pages/dashboard.page');
 	const projectForm = require('../pages/projects/form.page.js');
+	const project = require('../pages/projects/projects.page.js');
 
 	beforeEach(() => {
 		browser.waitForAngularEnabled(false);
@@ -22,6 +23,9 @@ describe('Login', function () {
 		yield projectForm.clickAccountSelector();
 		yield projectForm.createNewAccount('demo');
 		yield projectForm.clickCreateProjectButton();
-		expect(false);
+	});
+
+	it('Goes to the Settings Project Page', function*() {
+		yield project.clickSettingsTabButton();
 	});
 });
