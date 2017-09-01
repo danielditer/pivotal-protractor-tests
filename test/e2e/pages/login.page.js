@@ -1,21 +1,21 @@
 'use strict';
 
+const Common = require('./common.js');
+
 class pivotalSignInPage {
 	constructor() {
 		this.nameInput = element(by.id('credentials_username'));
 		this.passwordInput = element(by.id('credentials_password'));
-		this.loginButton = element(by.css('.app_signin_action_button'));
+		this.loginButton = $('.app_signin_action_button');
 	}
 
 	setName(name) {
-		return this.nameInput.clear()
-			.then(() => this.nameInput.sendKeys(name))
+		return Common.setInputField(this.nameInput, name)
 			.then(() => this.loginButton.click());
 	}
 
 	setPassword(pass) {
-		return this.passwordInput.clear()
-			.then(() => this.passwordInput.sendKeys(pass))
+		return Common.setInputField(this.passwordInput, pass)
 			.then(() => this.loginButton.click());
 	}
 }
