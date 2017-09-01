@@ -8,7 +8,7 @@ exports.config = {
 		}
 	},
 
-	specs: ['./test/e2e/specs/workspace/workspace.create.spec.js'],
+	specs: ['./test/e2e/specs/workspace/workspace.create.edit.spec.js'],
 
 	framework: 'jasmine',
 
