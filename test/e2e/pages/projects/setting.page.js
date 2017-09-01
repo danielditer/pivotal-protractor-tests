@@ -1,5 +1,7 @@
 'use strict';
 
+const Common = require('../common.js');
+
 class ProjectSetting {
 	constructor() {
 		this.deleteLabel = element(by.id('delete_link'));
@@ -11,8 +13,7 @@ class ProjectSetting {
 	}
 
 	setProjectNameInputField(projectName) {
-		return this.projectNameInputField.clear()
-			.then(() => this.projectNameInputField.sendKeys(projectName));
+		return Common.setInputField(this.projectNameInputField, projectName);
 	}
 
 	clickDeleteLabel() {

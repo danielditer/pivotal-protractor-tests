@@ -4,7 +4,7 @@ class pivotalDashboardPage {
 
 	constructor() {
 
-		this.profileButton = element(by.css('a[data-aid=\'ProfileDropdown__profile\']'));
+		this.profileButton = $('a[data-aid=\'ProfileDropdown__profile\']');
 		this.logoLabel = element(by.className('tc_header_text_logo'));
 		this.projectButton = element(by.id('create-project-button'));
 
