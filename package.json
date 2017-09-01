@@ -29,5 +29,8 @@
     "jasmine-co": "1.2.2",
     "protractor": "^5.1.2",
     "superagent": "^3.6.0"
+  },
+  "dependencies": {
+    "eslint": "^4.5.0"
   }
 }
