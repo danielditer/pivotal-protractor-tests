@@ -5,6 +5,7 @@ class Common {
 		return element.clear()
 			.then(() => element.sendKeys(inputString));
 	}
+
 }
 
 module.exports = new Common();

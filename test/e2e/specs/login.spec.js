@@ -5,6 +5,7 @@ describe('Login', function () {
 	const dashboardPage = require('../pages/dashboard.page');
 	const projectForm = require('../pages/projects/form.page.js');
 	const project = require('../pages/projects/projects.page.js');
+	const projectSetting = require('../pages/projects/setting.page.js');
 
 	beforeAll(() => {
 		browser.waitForAngularEnabled(false);
@@ -27,7 +28,28 @@ describe('Login', function () {
 		expect(project.getProjectName()).toContain('demo');
 	});
 
-	it('Goes to the Settings Project Page', function*() {
+
+	it('Edit Project', function*() {
 		yield project.clickSettingsTabButton();
+		yield projectSetting.setProjectNameInputField('other name');
+		yield projectSetting.clickSaveButton();
+		yield browser.wait(EC.presenceOf(projectSetting.changesSuccessLabel), 8000);
+		expect(projectSetting.getChangesSuccessText()).toContain('changed saved');
+	});
+
+	it('Delete Project', function*() {
+		yield projectSetting.clickDeleteLabel();
+		yield projectSetting.clickConfirmDeleteButton();
+		yield browser.wait(EC.presenceOf(projectSetting.errorMessage), 8000);
+		expect(projectSetting.isErrorMessageDisplayed());
+	});
+
+
+	it('Edit a Project', function*() {
+	    yield dashboardPage.clickProjectSettings('at-04demo');
+	    yield projectSetting.setNameInputField('other name');
+	    yield projectSetting.clickSaveButton();
+	    yield browser.wait(EC.presenceOf(projectSetting.changesSuccessLabel), 8000);
+	    expect(projectSetting.getChangesSuccessText()).toContain('changed saved');
 	});
 });
