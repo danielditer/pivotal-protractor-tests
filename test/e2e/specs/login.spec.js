@@ -6,9 +6,9 @@ describe('Login', function () {
 	const projectForm = require('../pages/projects/form.page.js');
 	const project = require('../pages/projects/projects.page.js');
 
-	beforeEach(() => {
+	beforeAll(() => {
 		browser.waitForAngularEnabled(false);
-		browser.get(browser.params.baseUrl+'/signin');
+		browser.get(`${browser.params.baseUrl}/signin`);
 	});
 
 	it('Login with valid credentials', function*() {
@@ -23,6 +23,8 @@ describe('Login', function () {
 		yield projectForm.clickAccountSelector();
 		yield projectForm.createNewAccount('demo');
 		yield projectForm.clickCreateProjectButton();
+		yield browser.wait(EC.presenceOf(project.projectName), 8000);
+		expect(project.getProjectName()).toContain('demo');
 	});
 
 	it('Goes to the Settings Project Page', function*() {

@@ -6,7 +6,7 @@ class pivotalSignInPage {
 	constructor() {
 		this.nameInput = element(by.id('credentials_username'));
 		this.passwordInput = element(by.id('credentials_password'));
-		this.loginButton = element(by.css('.app_signin_action_button'));
+		this.loginButton = $('.app_signin_action_button');
 	}
 
 	setName(name) {
