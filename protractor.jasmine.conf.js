@@ -8,7 +8,7 @@ exports.config = {
 		}
 	},
 
-	specs: ['./test/e2e/specs/login.spec.js'],
+	specs: ['./test/e2e/specs/project.spec.js'],
 
 	framework: 'jasmine',
 
@@ -26,6 +26,7 @@ exports.config = {
 	    username: '',
 		password: '',
 		token: '',
-		baseUrl: 'https://www.pivotaltracker.com'
+		baseUrl: 'https://www.pivotaltracker.com',
+		apiBaseUrl: 'https://www.pivotaltracker.com/services/v5'
 	}
 };

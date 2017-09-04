@@ -5,11 +5,19 @@ describe('Login', function () {
 	const dashboardPage = require('../pages/dashboard.page');
 	const projectForm = require('../pages/projects/form.page.js');
 	const project = require('../pages/projects/projects.page.js');
+	const requestManager = require('../../api/request.manager');
 	const projectSetting = require('../pages/projects/setting.page.js');
 
 	beforeAll(() => {
 		browser.waitForAngularEnabled(false);
 		browser.get(`${browser.params.baseUrl}/signin`);
+	});
+
+	it('Demo Test API of Projects', function* () {
+		yield requestManager.post('/projects', {'name': 'demo5'});
+		expect(requestManager.getStatus()).toBe(200);
+		yield requestManager.delete('/projects/'+requestManager.getResponse().id);
+		expect(requestManager.getStatus()).toBe(204);
 	});
 
 	it('Login with valid credentials', function*() {
@@ -24,10 +32,9 @@ describe('Login', function () {
 		yield projectForm.clickAccountSelector();
 		yield projectForm.createNewAccount('demo');
 		yield projectForm.clickCreateProjectButton();
-		yield browser.wait(EC.presenceOf(project.projectName), 8000);
+		yield browser.wait(EC.presenceOf(project.projectName), 12000);
 		expect(project.getProjectName()).toContain('demo');
 	});
-
 
 	it('Edit Project', function*() {
 		yield project.clickSettingsTabButton();
@@ -43,7 +50,6 @@ describe('Login', function () {
 		yield browser.wait(EC.presenceOf(projectSetting.errorMessage), 8000);
 		expect(projectSetting.isErrorMessageDisplayed());
 	});
-
 
 	it('Edit a Project', function*() {
 	    yield dashboardPage.clickProjectSettings('at-04demo');
