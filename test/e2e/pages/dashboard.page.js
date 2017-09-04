@@ -31,6 +31,11 @@ class pivotalDashboardPage {
 		return this.logoLabel.click();
 	}
 
+	clickProjectName(name){
+		this.xpath = `//a[text()='${name}']`;
+		return element(by.xpath(this.xpath)).click();
+	}
+
 }
 
 module.exports = new pivotalDashboardPage();
