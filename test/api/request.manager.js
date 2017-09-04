@@ -4,14 +4,13 @@ let axios = require('axios');
 
 class RequestManager {
 	constructor() {
-		let service = axios.create({
+		this.service = axios.create({
 			baseURL: browser.params.apiBaseUrl,
-			timeout: 1000,
+			// timeout: 1000,
 			headers: {
 				'X-TrackerToken': browser.params.token
 			}
 		});
-		this.service = service;
 	}
 
 	getResponse() {
@@ -66,7 +65,7 @@ class RequestManager {
 		});
 	}
 
-	delete(path) {
+	del(path) {
 	    return this.service.request({
 			method: 'DELETE',
 			url: path,
