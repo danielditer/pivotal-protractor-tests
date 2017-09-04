@@ -23,9 +23,10 @@ exports.config = {
 	},
 
 	params : {
-	    username: '',
-		password: '',
-		token: '',
-		baseUrl: 'https://www.pivotaltracker.com'
+	    username: 'demouser2710@gmail.com',
+		password: 'secret2710',
+		token: '82bf5a28399fa5c2d587571f745b57c4',
+		baseUrl: 'https://www.pivotaltracker.com',
+		apiBaseUrl: 'https://www.pivotaltracker.com/services/v5'
 	}
 };
