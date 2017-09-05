@@ -11,9 +11,9 @@ class WorkspaceForm {
     }
 
     setNameWorkspace(name) {
-        return this.workSpaceNameInputField.clear()
+        return browser.wait(() => EC.presenceOf(this.workSpaceNameInputField), 6000)
+            .then(() => this.workSpaceNameInputField.clear())
             .then(() => this.workSpaceNameInputField.sendKeys(name));
-
     }
 
     clickSaveWorkspace() {
