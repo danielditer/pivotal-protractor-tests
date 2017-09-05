@@ -1,4 +1,5 @@
 exports.config = {
+
 	seleniumAddress: 'http://localhost:4444/wd/hub',
 
 	capabilities: {
@@ -20,6 +21,8 @@ exports.config = {
 	onPrepare: function() {
 		require('jasmine-co').install();
 		global.EC = protractor.ExpectedConditions;
+		browser.waitForAngularEnabled(false);
+		browser.get(`${browser.params.baseUrl}/signin`);
 	},
 
 	params : {
