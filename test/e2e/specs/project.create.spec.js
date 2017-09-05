@@ -9,14 +9,13 @@ describe('Login', function () {
 	const common = require('../pages/common');
 	let id;
 
-	beforeAll(function*() {
-		yield loginPage.setName(browser.params.username);
-		yield loginPage.setPassword(browser.params.password);
+	beforeAll(function* () {
+		yield loginPage.loginAs(browser.params.username, browser.params.password);
 		expect(dashboardPage.getPageTitle()).toBe('Dashboard - Pivotal Tracker');
 	});
 
 
-	it('Create a project', function*() {
+	it('Create a project', function* () {
 		yield common.goesToDashboard();
 		yield dashboardPage.clickProjectButton();
 		yield projectForm.setNameInputField('newDemoProject');
@@ -26,13 +25,11 @@ describe('Login', function () {
 		expect(project.getProjectName()).toContain('newDemoProject');
 	});
 
-	afterEach(function*() {
+	afterEach(function* () {
 		yield requestManager.del(`/projects/${id}`);
 		expect(requestManager.getStatus()).toBe(204);
 	});
 
-	afterAll(function*() {
-		yield common.clickLogOut();
-
+	afterAll(function* () {
 	});
 });

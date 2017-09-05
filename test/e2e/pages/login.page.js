@@ -18,6 +18,17 @@ class pivotalSignInPage {
 		return Common.setInputField(this.passwordInput, pass)
 			.then(() => this.loginButton.click());
 	}
+
+	loginAs(user, pass) {
+		browser.get(`${browser.params.baseUrl}/signin`);
+		return browser.getTitle()
+			.then(title => {
+				if (title === 'Pivotal Tracker - Sign in') {
+					return this.setName(user)
+						.then(() => this.setPassword(pass));
+				}
+			});
+	}
 }
 
 module.exports = new pivotalSignInPage();

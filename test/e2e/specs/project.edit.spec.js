@@ -10,8 +10,7 @@ describe('Login', function () {
 	let id;
 
 	beforeAll(function*() {
-		yield loginPage.setName(browser.params.username);
-		yield loginPage.setPassword(browser.params.password);
+		yield loginPage.loginAs(browser.params.username, browser.params.password);
 		expect(dashboardPage.getPageTitle()).toBe('Dashboard - Pivotal Tracker');
 	});
 

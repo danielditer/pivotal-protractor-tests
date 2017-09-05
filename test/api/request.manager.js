@@ -36,8 +36,8 @@ class RequestManager {
 			url: path,
 			responseType: 'json',
 			data: payload
-		}).then((response) => this.success(response))
-			.catch((error) => this.error());
+		}).then(response => this.success(response))
+			.catch(error => this.error(error));
 	}
 
 	get(path) {
@@ -45,8 +45,8 @@ class RequestManager {
 			method: 'GET',
 			url: path,
 			responseType: 'json'
-		}).then((response) => this.success(response))
-			.catch((error) => this.error());
+		}).then(response => this.success(response))
+			.catch(error => this.error(error));
 	}
 
 	put(path, payload) {
@@ -55,8 +55,8 @@ class RequestManager {
 			url: path,
 			responseType: 'json',
 			data: payload
-		}).then((response) => this.success(response))
-			.catch((error) => this.error());
+		}).then(response => this.success(response))
+			.catch(error => this.error(error));
 	}
 
 	del(path) {
@@ -64,10 +64,9 @@ class RequestManager {
 			method: 'DELETE',
 			url: path,
 			responseType: 'json'
-		}).then((response) => this.success(response))
-			.catch((error) => this.error());
+		}).then(response => this.success(response))
+			.catch(error => this.error(error));
 	}
 }
-
 
 module.exports = new RequestManager();
