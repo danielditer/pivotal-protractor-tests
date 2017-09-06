@@ -29,7 +29,6 @@
     "eslint": "^4.6.1",
     "eslint-plugin-protractor": "^1.40.0",
     "jasmine-co": "1.2.2",
-    "protractor": "^5.1.2",
-    "superagent": "^3.6.0"
+    "protractor": "^5.1.2"
   }
 }

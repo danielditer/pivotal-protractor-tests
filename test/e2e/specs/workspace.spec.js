@@ -1,5 +1,5 @@
 'use strict';
-describe('Create a new Workspace', function () {
+describe('Create, edit and delte a Workspace', function () {
 	const loginPage = require('../pages/login.page');
 	const dashboardPage = require('../pages/dashboard.page');
 	const workspaceForm = require('../pages/workspace/form.page.js');
