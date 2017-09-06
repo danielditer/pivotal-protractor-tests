@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Login', function () {
+describe('Edit the Projects', function () {
 	const loginPage = require('../pages/login.page');
 	const dashboardPage = require('../pages/dashboard.page');
 	const requestManager = require('../../api/request.manager');

@@ -2,8 +2,14 @@
 
 const Common = require('../common.js');
 
+/**
+ * Page Object for WorkSpace.
+ */
 class Workspace {
 
+	/**
+     * Constructor initializing all WebElements.
+     */
 	constructor() {
 
 		this.workSpacesNameEdit = element(by.id('workspace_name'));
@@ -14,20 +20,40 @@ class Workspace {
 
 	}
 
+	/**
+	 * Click the Save Button WorkSpace for Edit.
+     */
 	clickSaveButtonWorkspaceEdited() {
 		return this.saveWorkspaceEditedbutton.click();
 	}
 
+	/**
+	 * Click the Delete Label.
+     */
 	clickDeleteLabel() {
 		return this.deleteLabel.click();
 	}
+
+	/**
+	 * Click the Confirm Delete Button.
+     */
 	clickConfirmDeleteButton() {
 		return this.confirmDeleteButton.click();
 	}
 
+	/**
+	 * Set the Name for WorkSpace Input Field with value provided.
+     * @param workspaceName Name for Workspace.
+     * @returns {*} Promise.
+     */
 	setWorkSpaceNameInputField(workspaceName) {
 		return Common.setInputField(this.workSpacesNameEdit, workspaceName);
 	}
+
+	/**
+     * Get the Message Changes Success label.
+     * @returns {string} Message of Success.
+     */
 	getChangesSuccessText() {
 		return this.changesSuccessLabel.getText();
 	}
