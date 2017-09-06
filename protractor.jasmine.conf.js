@@ -24,6 +24,12 @@ exports.config = {
 		global.EC = protractor.ExpectedConditions;
 		browser.waitForAngularEnabled(false);
 		browser.get(`${browser.params.baseUrl}/signin`);
+        var jasmineReporters = require('jasmine-reporters');
+        jasmine.getEnv().addReporter(new jasmineReporters.JUnitXmlReporter({
+            consolidateAll: true,
+            savePath: 'testresults',
+            filePrefix: 'xmloutput'
+        }));
 	},
 
 	params : {
