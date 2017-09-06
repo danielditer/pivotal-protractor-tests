@@ -29,6 +29,7 @@
     "eslint": "^4.6.1",
     "eslint-plugin-protractor": "^1.40.0",
     "jasmine-co": "1.2.2",
+    "jasmine-reporters": "^2.2.1",
     "protractor": "^5.1.2"
   }
 }
