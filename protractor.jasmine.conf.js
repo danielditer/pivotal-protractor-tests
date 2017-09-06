@@ -1,6 +1,7 @@
+let json = require('./properties.json');
 exports.config = {
 
-	seleniumAddress: 'http://localhost:4444/wd/hub',
+	seleniumAddress: json.seleniumAddress,
 
 	capabilities: {
 		'browserName': 'chrome',
@@ -26,10 +27,10 @@ exports.config = {
 	},
 
 	params : {
-		username: '',
-		password: '',
-		token: '',
-		baseUrl: 'https://www.pivotaltracker.com',
-		apiBaseUrl: 'https://www.pivotaltracker.com/services/v5'
+		username: json.username,
+		password: json.password,
+		token: json.token,
+		baseUrl: json.baseUrl,
+		apiBaseUrl: json.apiBaseUrl
 	}
 };
