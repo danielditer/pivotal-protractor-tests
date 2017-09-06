@@ -13,11 +13,6 @@ describe('Test all API request', function () {
 		expect(requestManager.getStatus()).toBe(200);
 	});
 
-	// it('Send a PUT request to WorkSpaces', function* () {
-	// 	yield requestManager.put(`/my/workspaces/${id}`, {'name': 'MyWorkSpacesUpdated'});
-	// 	expect(requestManager.getStatus()).toBe(200);
-	// });
-
 	it('Send a DELETE request the WorkSpaces', function* () {
 		yield requestManager.del(`/my/workspaces/${id}`);
 		expect(requestManager.getStatus()).toBe(204);

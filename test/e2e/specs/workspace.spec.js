@@ -6,14 +6,12 @@ describe('Create a new Workspace', function () {
 	const workspace = require('../pages/workspace/workspaces.page.js');
 	const workspaceSetting = require('../pages/workspace/setting.page.js');
 	var name = 'New Workspace';
+
 	beforeAll(() => {
-		browser.waitForAngularEnabled(false);
-		browser.get(browser.params.baseUrl + '/signin');
 	});
 
 	it('Login with valid credentials', function* () {
-		yield loginPage.setName(browser.params.username);
-		yield loginPage.setPassword(browser.params.password);
+		yield loginPage.loginAs(browser.params.username, browser.params.password);
 		expect(dashboardPage.getPageTitle()).toBe('Dashboard - Pivotal Tracker');
 	});
 

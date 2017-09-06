@@ -26,7 +26,7 @@ exports.config = {
 	},
 
 	params : {
-	    username: '',
+		username: '',
 		password: '',
 		token: '',
 		baseUrl: 'https://www.pivotaltracker.com',
